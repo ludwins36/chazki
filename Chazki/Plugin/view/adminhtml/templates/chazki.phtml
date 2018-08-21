@@ -1,0 +1,101 @@
+<style type="text/css">
+  #estadochaski{
+  }
+  #estadochaski h2{
+    font-weight: bold;
+    font-size: 21px;
+        margin-bottom: 12px;
+  }
+  #estadochaski .cont-data{
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  #estadochaski td{
+    padding: 4px 30px 4px 0px;
+  }
+  #estadochaski #estped tr td:first-child{
+    font-weight: bold;
+  }
+  #estadochaski .title-service{
+        margin-top: 15px;
+    margin-bottom: 5px;
+  }
+  #estadochaski th{
+    text-align: left;
+  }
+  .table-historial{
+    margin-bottom: 20px;
+    border: 1px solid #a6a6a6;
+    min-width: 500px;
+  }
+  .table-historial td, .table-historial th{
+    padding: 4px 10px!important;
+  }
+  .table-historial td{
+    border-top: 1px solid #a6a6a6;
+  }
+</style>
+<?php
+  $datos = $this->datos();
+  $datoshistorial = $this->datoshistorial();
+?>
+<div id="estadochaski">
+  <h2>Estado actual del pedido</h2>
+  <div class="cont-data">
+
+    <?php
+      if(!$datos){
+    ?>
+      No se pudo consultar los datos de esta orden
+    <?php
+      }else{
+    ?>
+      <table id="estped">
+        <tr><td>Latitud: </td><td><?= $datos['position']['latitude'] ?></td></tr>
+        <tr><td>Longitud: </td><td><?= $datos['position']['longitude'] ?></td></tr>
+        <tr><td>Estado: </td><td><?= $datos['status'] ?></td></tr>
+        <tr><td>Última actualización: </td><td><?= $datos['timestamp'] ?></td></tr>
+        <tr><td>Nombre y Apellido del Chazki: </td><td><?= $datos['rd'] ?></td></tr>
+        <tr><td>Celular: </td><td><?= $datos['cel'] ?></td></tr>
+        <?php if(isset($datos['motivo']) && $datos['motivo']!=null){ ?>
+        <tr><td>Motivo: </td><td><?= $datos['motivo'] ?></td></tr>
+        <tr><td>Descripción de motivo: </td><td><?= $datos['descripcionMotivo'] ?></td></tr>
+        <?php } ?>
+      </table>
+    <?php
+      }
+    ?>
+
+  </div>
+
+  <h2>Historial del pedido</h2>
+  <div class="cont-data">
+
+    <?php
+      if(count($datoshistorial)==0){
+    ?>
+      No se pudo consultar los datos de esta orden
+    <?php
+      }else{
+        foreach ($datoshistorial as $key => $value) {
+          if($key!="deliveryResponse" && $key!="response"){ ?>
+
+            <div class="title-service"><span style="font-weight: bold;">Servicio:</span> <?= $key ?></div>
+            <table class="table-historial">
+              <tr><th>Fecha</th><th>Estado</th><th>Razón</th></tr>
+              <?php foreach ($value as $key) { ?>
+              <tr><td><?= $key['date'] ?></td><td><?= $key['status'] ?></td><td><?= (isset($key['reason']))?$key['reason']:"" ?></td></tr>
+              <?php } ?>
+            </table>
+
+          <?php }
+        }
+    ?>
+      
+    <?php
+      }
+    ?>
+
+  </div>
+
+</div>

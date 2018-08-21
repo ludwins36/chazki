@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <carriers>
+            <chazki>
+                <enable>1</enable>
+                <sallowspecific>0</sallowspecific>
+                <model>Chazki\Plugin\Model\Carrier\Chazki</model>
+                <name>Envío por chazki</name>
+                <price>0</price>
+                <title>Envío por chazki descripcion</title>
+                <type>I</type>
+                <specific_error_msg>No esta disponible</specific_error_msg>
+            </chazki>
+        </carriers>
+    </default>
+</config>

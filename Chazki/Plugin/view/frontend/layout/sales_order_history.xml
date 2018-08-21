@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+    <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+        <head>
+            <script src="Chazki_Plugin::js/tracking.js"/>
+        </head>
+         <update handle="customer_account"/>
+         <body>
+             <referenceContainer name="sales.order.history.extra.column.header">
+                 <block class="Magento\Framework\View\Element\Template" name="sales.order.history.extra.column.header.exportOrder" template="Chazki_Plugin::order/export/header.phtml" />
+                 </referenceContainer>
+                 <referenceBlock name="sales.order.history.extra.container">
+                 <block class="Magento\Framework\View\Element\Template" name="sales.order.history.extra.container.data.2" template="Chazki_Plugin::order/export/content.phtml" />
+             </referenceBlock>
+
+             <referenceContainer name="content">
+                <block class="Magento\Framework\View\Element\Template"
+                       name="chaski.modal"
+                       template="Chazki_Plugin::modal-tracking.phtml">
+                </block>
+             </referenceContainer>
+
+         </body>
+    </page>
