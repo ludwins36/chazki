@@ -1,0 +1,14 @@
+1. Descomprima el paquete de extensión.
+2. Subir las carpetas a la carpeta [raiz]/app/code
+3. Ejecutar comandos:
+   3.1. php bin/magento setup:upgrade
+   3.2. php bin/magento setup:static-content:deploy
+
+4. Configura el mapa y la ubicacion del almacen en :
+	Stores -> Configuracion -> Checkout -> General Setting
+
+5. Configura los datos de Chaski en:
+	Stores -> Configuracion -> Chazki -> General Setting
+
+6. Habilitar los metodos de envio(regular, express y programado) en:
+	Stores -> Configuracion -> Sales -> Shipping methods
