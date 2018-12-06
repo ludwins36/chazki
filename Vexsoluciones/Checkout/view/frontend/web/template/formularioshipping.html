@@ -1,0 +1,108 @@
+<style type="text/css">
+.shipping-paso-1 select{margin-bottom: 15px;margin-top: 5px;}
+#desc-shipping-paso-1{margin-bottom: 12px;}
+#mapaGeoDecode{margin-top: 20px;margin-bottom: 10px;}
+.shipping-paso-1{width: 100%;max-width: 500px;margin-top: 15px;}
+</style>
+<div class="shipping-paso-1">
+
+
+  <div class="title"><span> Seleccione el pais destino</span></div>
+  <div>
+    <select id="vex_paises" 
+     class="shipping_select" 
+     data-bind="options: currentCountry, 
+                optionsText: 'text',  
+                value: ubigeoPais"></select>
+              
+  </div>
+
+
+  <div id="desc-shipping-paso-1" data-bind="fadeVisible: isCountryLocal()">Selecciona el departamento, provincia y distrito donde quieres recibir tus productos.</div>
+  
+   <div class="checkout-shipping-delivery-ubigeo">
+
+    <div class="referencia" data-bind="fadeVisible: isCountryLocal()">
+      <div class="title"><span> Departamento</span></div>
+      <div>
+        <select id="selRecojoUbigeoDepartamento" 
+         class="shipping_select" 
+         data-bind="options: departamentos, 
+                    optionsText: 'text',  
+                    value: ubigeoDepartamento"></select>
+                  
+      </div>
+ 
+    </div>
+
+    <div class="referencia" data-bind="fadeVisible: isCountryLocal()">
+      <div class="title"><span> Provincia</span></div>
+      <div>
+        <select id="selRecojoUbigeoProvincia" 
+               class="shipping_select" 
+               data-bind="options: provincias, 
+                          optionsText: 'text',
+                          value: ubigeoProvincia"></select>
+      </div>
+    </div>
+
+    <div class="referencia" data-bind="fadeVisible: isCountryLocal()">
+      <div class="title"><span> Distrito</span></div>
+      <div>
+        <select id="selRecojoUbigeoDistrito" 
+               class="shipping_select" 
+               data-bind="options: distritos, 
+                          optionsText: 'text', 
+                          value: ubigeoDistrito"></select>
+      </div>
+    </div> 
+
+  </div>
+
+  <div id="contenedor-mapa" style="display:none;" >
+    <div id="mapaGeoDecode" style="height:450px;" data-bind="fadeVisible: isCountryLocal()">
+
+    </div>
+    <div class="distancia-label" data-bind="fadeVisible: isCountryLocal()">
+        <span data-bind="html: distanciaMenor">0</span> Km
+    </div>
+  </div>
+
+
+  <div id="contenedor-movilidad" style="margin-top: 25px;margin-bottom: 40px;" data-bind="fadeVisible: isCountryLocal()">
+      <div id="">
+
+          <div style="margin-bottom: 8px;font-weight: bold;font-size: 16px;">Tipo de movilidad</div>
+          <div style="margin-bottom: 5px;height: 90px;">
+            <input type="radio" id="promo1" value="1" name="movilidad" data-bind="checked: movilidad, click:clickmovilidad" /> <img style="height: 38px;margin-right: 15px;margin-left: 5px;position: relative;top: 11px;" for="#promo1" src="data:image/png;base64,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
+">
+            <label for="promo1" style="display: inline-block;text-align: center;width: 371px;padding-left: 10px;position: relative;top: 18px;"><span style="font-weight: bold;width: 100%;display: block;">Bicicleta</span><span style="    display: block;margin-top: 5px;">Ideal para distancias cortas, llevar documentos, sobres y cosas pequeñas. Máximo 5kg y/o 30x30x30cm</span></label>
+          </div>
+          <div style="margin-bottom: 5px;height: 90px;">
+            <input type="radio" id="promo2" value="2" name="movilidad" data-bind="checked: movilidad, click:clickmovilidad" />
+            <img style="height: 38px;margin-right: 15px;margin-left: 5px;position: relative;top: 11px;" for="promo2" src="data:image/png;base64,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
+">
+            <label for="promo2" style="display: inline-block;text-align: center;width: 371px;padding-left: 10px;position: relative;top: 18px;"><span style="font-weight: bold;width: 100%;display: block;">Moto</span><span style="    display: block;margin-top: 5px;">Ideal para distancias largas, de mayor urgencia y mayor capacidad. Máximo 12KG y/o 40x40x40cm</span></label>
+          </div>
+          <div style="margin-bottom: 5px;height: 90px;">
+            <input type="radio" id="promo3" value="3" name="movilidad" data-bind="checked: movilidad, click:clickmovilidad" />
+            <img style="height: 38px;margin-right: 15px;margin-left: 5px;position: relative;top: 11px;" for="promo3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABLCAYAAAHxHxIhAAAABGdBTUEAALGPC/xhBQAACLpJREFUeAHtXGuoVUUUvmmalXmt2zvLMguDKMn+BIJWRkaZRpE/TKQfkT00hMofSYIVVGBFRYGZ3Qi1l0TvtKywErJQSqMX6fGWZWjeLMteZt937l7HdebM7D1n733OPec0C5azZs16zZrZc2bPnmtbW71gP+Vor6I1qWU0v0hrJRddFNw/Uh0QlS5h4Zd5FWakG1uUybJSxlCqum2vhNcdCSxCKbTSKZJ9orafzYZWqUtmdHlKXOd0ioWWsqTHtBGkgaWmpY281awQRKCnFv9vaRC1Ytk8ivTFaBdHnaP4L5CCbLCNurQNQnurAvuehFuydr4jcmLaEcfC/8MhJ+2xJY2dbpEwnYiIiy/tpZIz2Fu4pFVJzFR2Svbk8diDxsOAMnE3gL4aWC2cB4XFQNohdgH3ilF61UA+J/dOzfSgXfYqVKWbLJdUtLoZWs8M2q0VWhomA+YA2uojqolWppzWqWZm2PS1LSctkZsCpnOXnKnXJk+82eATYf9IaZ6pnFTnT50ZsejY+Fx+bHzRqSj/jhQkDVnKCRXWlfGbbY2evL6Q+17ZYpAbRZeNVXVZFBNKWfaLYl8bTm5A/ZMEA7bmI8HcBDxINZaCJyEVoaVU8rHki5EN0bsjkha7RQfSyFK20prnQ6+PDO82HBZ/vfSubDAEOO/nRoL8xfwVmATUI/D5YkAE2cMf2lPd9+9KkDrqfS3x1EBDz+dhjrcYWkMGQgZyzoDPYylrRF6ud8EQN9l52/WKT69l7QkaWlaLzoqC1+38/akbfApP4nyOh1eRZekC2RBRZrtLKE/+VTAmgW3zNCzycR2hqcnKNmWPILMWcBKM6qDqTT8D/yPTdoxnWfUOOK0/7gutsANcMfqXVaJ3mZfB/RoVo8R6uw5rrhLo1A0NTEtHWJZAryIlJohjgFpB0/wtqAXoVVL7e8lwthl1aS81CYOlwFMgNH806uMM3iMinFOp/S2AzcOBbwE1X1wldkQrCS3KUgq/VqWZINuzoX1LXNbSZwXjIWKeoKe4DlToTD+e1yBSMSTllXlGb9jqh/pWw+dnhkyohgyEDIQMhAyEDIQMpMnAw1CSX/Os5UNpAvDVcX2K8dWvRu5GCDMZLHOHenZEgufI/CCVepbj4Uym1e8Jji9Sso8q2aNB/6jaaO9L1Z6Z9BkRfmMRuFiIKkvuZo8CTlR6p4J+QNVrTsposEwC14hovSmoaJtDdGNaOmlE9PR4Pa0TQ28x6h8p3reKrhmpMycfjOOc+YyI6Gvb/JKaCeJGZJhhOe+zLv3hlKc1txj+cqt+B0s6a/Wkt8D3DGBcohM7encvdsCVrD8R0z1A78OOQgN2wtY5LufyJR1kObyNqlai8NBykbrVzoKnZ4E6Hht9rBlRh6E01RTo5Tq/ncwH2i60lIXWhZr0eElZS2NW9EHedB2idIJlM8AIBCkxb9IBC9PWEU67ZUAqLAUOBNYaePOHp4vrgK5pbo1ZmJxiGj5GRdp0uUIL5Uif4PBH3/oHlC51PKwXQZiFqM6CeyLh28r7lGxepM2P5mk/Vr4wC0pSeCz5rYSXiV4Faj6qucELsKRtj0J9vMG7V3nTsiW2Zpr0NyWpHoK3pEyZvOv6Rob502Dz5bWXed/oyFqjXosqgxX4SYi4UnrebREarHgiR5Z2wtHJC9phSPzMBi3T6GnQkyMn/6DkXRYTOO2dQCXbMArvF6dmuoYzEvzRb6qlf0CC4UxbbEdfP4jxudCh48XmDtN8L/kKPJkCXkaqFOKNBhl1KSdVaSOIhwyEDIQMhAyEDIQMhAyEDIQMhAyEDNQjA1nfjeYhyGn1CNTig2/hfNPmkQH/AnE9cDWQ5yJ8F/tfQp63VOSFNq+SZ/UvA4c208jU4gikUfrPp/8SYAHIQX4POBzY0sAzr0FAnkbyY79tds+MZChXLV7usPk4+Lz4PxI4ATgDuByYdJjI+DYDjwe2NLg+vPIrRBbQN0H0YOurMTb7/Az/JFDrmDSvwfS3KTc77yZHx/k1JeumIe2A6JxORMX2MVsGiE9Yy8DZ6Il0TJd7wB+SQy/zGBAJY74jVsa9CthXBJu1PBCBc8upB0LoK3LqVJ4DwpCGAXcCJU5dchKdC2xaeAeR6w4JfX+OPcp7QCS0BY7Y2Qde18y61Iqfqkt+TEsDd0JprEWROy0O1KWWtjSsUQ6lE8HP4uMV6BeAdwFN4LUE3tGbDtweNXKgeBtmY1RviOJMRPEc0GdrKU9Lq5dc/vhE3QYcA+QyXlPg/du1wFZPbK36x9OCDUBu07n89gPGgmut5D7+Q6DPmy3vC3QBtwL5w9iKwIl5DvCQnDrHCx3882Yu8YlwLSTiZgy3j6musiR6bj6BkxHyNOBC4BfAuLzZ2tZBJ/apmRNj9Dq0BaguAwdDnOdprwFtA0Ief4esT95YhxL/+1heWQ2QPQOdMGEbmGU20286hCfZhAMvVQb4m70LaA7KbzZr3RbBpD+VPAA6fCehQdOJru9A+yxgH2CzAbeyvNu6G6j7ZNLb0H490LVRQlMRNuNfU5f1CrAJFSqkehiDUPALnU0nicfvEhzIRocOBMgdZFJ/bO0roOd66c59QE6DM25vbYH48vhyOQLYqMATAt++uOT4tj/U0sGCw3aFqMuwL39uhcWex/cxRwC+dhtJjsuuCVyGFwOzxmnazWSws8JaOWMlqlkD7m39B8u7VFHji3SWGCsMZjHGQzfXmsk9Nm+HZLHfCLo8XHRtSniywSUqS5xQTwdPQM3leCnaxgCPA14AXA50yc5DW6MCD1FdcXeibTSQfbwQ+C7QJTsbbXWBRfDiCsKH38iDIQl03RPw6R9lbhVD9Sp5LLAK6Bsg5Z4HupY2NDUctCOiNcBq+siLHa6lLbGDSS8xiQYiAb48TQGOAw4HsiN80fwcyGWLs41b3WYGTsCpwPOBw4B8F+MLL39b3gBysvG4PUDIQMhAyEDIQMhAyEDIQFvbf1Vnd+t35nPPAAAAAElFTkSuQmCC
+">
+            <label for="promo3" style="display: inline-block;text-align: center;width: 371px;padding-left: 10px;position: relative;top: 18px;"><span style="font-weight: bold;width: 100%;display: block;">Auto</span><span style="    display: block;margin-top: 5px;">Ideal para mayor volumen y mayor carga. Máximo 90*70*50cm (Maletera) y 90*60*50 (Asientos traseros).</span></label>
+          </div>
+      </div>
+  </div>
+
+
+    <div id="contenedor-programado" style="display:none;margin-top: 23px;margin-bottom: 20px;" data-bind="fadeVisible: isCountryLocal()">
+      <div id="envio-programado-div" style="display:none;">
+          <input type="hidden" id="valorshippingactual" value="">
+
+          <div style="margin-bottom: 8px;font-weight: bold;font-size: 16px;">Envio programado</div>
+          <div style="margin-bottom: 3px;"><input type="radio" id="pro1" value="9-13" name="programado" data-bind="checked: programado, click:click" /> <label for="pro1">De 09:00 a 13:00hrs</label></div>
+          <div style="margin-bottom: 3px;"><input type="radio" id="pro2" value="13-17" name="programado" data-bind="checked: programado, click:click" /> <label for="pro2">De 13:00 a 17:00hrs</label></div>
+          <div style="margin-bottom: 3px;"><input type="radio" id="pro3" value="17-21" name="programado" data-bind="checked: programado, click:click" /> <label for="pro3">De 17:00 a 21:00hrs</label></div>
+      </div>
+    </div>
+
+</div>

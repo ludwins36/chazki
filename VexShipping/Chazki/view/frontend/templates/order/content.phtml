@@ -1,0 +1,16 @@
+<td data-th="<?php echo $this->escapeHtml(__('motorizado')) ?>" class="col actions">
+	<?php $shipping = $block->getOrder()->getShippingMethod();
+	$orderShippingAddress = $block->getOrder()->getShippingAddress()->getData('delivery_location');
+	$pos = strpos($shipping, 'chazki');
+    
+     if($pos !== false){ 
+
+    	$orderShippingAddress = $block->getOrder()->getShippingAddress()->getData('delivery_location');
+		$aux = explode(",", $orderShippingAddress);
+		$aux1 = (isset($aux[0]))?($aux[0]=="")?0:$aux[0]:"-";
+		$aux2 = (isset($aux[1]))?$aux[1]:0;
+    	?>
+    	<a href="#" class="trackingchazkiclick" data-lat="<?= $aux1 ?>" data-lng="<?= $aux2 ?>" data-id="<?= $block->getOrder()->getId() ?>">Ver tracking</a>
+    <?php } ?>
+ 
+</td>

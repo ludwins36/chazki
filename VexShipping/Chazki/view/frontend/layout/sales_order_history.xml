@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="VexShipping_Chazki::js/tracking.js"/>
+        <css src="VexShipping_Chazki::css/tracking.css"/>
+    </head>
+    <update handle="customer_account"/>
+    <body>
+     <referenceContainer name="sales.order.history.extra.column.header">
+        <block class="Magento\Framework\View\Element\Template" name="sales.order.history.extra.column.header.exportOrder" template="VexShipping_Chazki::order/header.phtml" />
+     </referenceContainer>
+        <referenceBlock name="sales.order.history.extra.container">
+            <block class="Magento\Framework\View\Element\Template" name="sales.order.history.extra.container.data.2" template="VexShipping_Chazki::order/content.phtml" />
+        </referenceBlock>
+    </body>
+</page>

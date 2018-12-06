@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="VexShipping\Chazki\Api\ChazkiInterface"
+                type="VexShipping\Chazki\Model\ChazkiApi" />
+
+    <type name="Magento\Config\Model\Config">
+        <plugin name="admin_system_config_save_plugin" type="VexShipping\Chazki\Plugin\ConfigPlugin" sortOrder="1"/>
+    </type>
+
+</config>

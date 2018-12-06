@@ -1,0 +1,60 @@
+.modalMapa .modal-footer{
+  display: none;
+}
+.modalMapa .modal-header{
+  padding-top: 18px;
+  padding-bottom: 13px;
+}
+.modalMapa .modal-header{
+  background: transparent!important;
+  padding: 0px;
+}
+.modalMapa #popup-modal-track{
+  display: block!important;
+}
+.modalMapa #popup-modal-track-mapa{
+  height: 450px!important;
+}
+.modalMapa .modal-inner-wrap{
+  width: 860px!important;
+}
+.modalMapa .action-close{
+  padding-top: 5px!important;
+  padding-right: 5px!important;
+}
+.modalMapa .modal-content{
+  padding-top: 3rem!important;
+}
+
+#popup-modal-track-labels{
+  padding: 20px;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-top: 0;
+}
+.rowlabel-track{
+  margin-bottom: 5px;
+}
+.rowlabel-track span{
+  font-weight: 200;
+    margin-left: 12px;
+}
+.rowlabel-track-s{
+  margin-top: 10px;
+}
+
+.rowlabel-track-first{
+  padding: 5px 10px;
+  width: 255px;
+}
+.rowlabel-track-value{
+  padding: 5px 10px;
+  font-weight: 200;
+}
+.rowlabel-track-s .rowlabel-track-first{
+  padding-top: 10px;
+}
+.rowlabel-track-s .rowlabel-track-value{
+  padding-top: 10px;
+}
+

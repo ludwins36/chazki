@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="vexsoluciones_chazki" translate="label" sortOrder="3001">
+            <label>Chazki</label>
+        </tab>
+         <section id="vexsolucioneschazki" translate="label" type="text" sortOrder="010606" showInDefault="1" showInWebsite="0"
+                 showInStore="0">
+            <label>General Settings</label>
+            <tab>vexsoluciones_chazki</tab>
+            <resource>Chazki_Plugin::settings</resource>
+            <group id="general" sortOrder="10" translate="label" type="text" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Settings</label>
+
+                <field id="license" sortOrder="10" translate="label comment" type="text" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Licencia</label>
+                    <validate>required-entry</validate>
+                </field>
+
+                <field id="key" sortOrder="10" translate="label comment" type="text" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Api key Google</label>
+                    <validate>required-entry</validate>
+                </field>
+
+                <field id="chazky_url" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ruta</label>
+                    <comment>Example: http://191.232.239.113:8080/.</comment>
+                    
+                </field>
+                <field id="chazky_api" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Chazki-api-key</label>
+                    <comment>Api key</comment>
+                    
+                </field>
+                <field id="storeid" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Storeid</label>
+                    <comment>Este campo está referido a la tienda origen.</comment>
+                    
+                </field>
+                <field id="branchid" translate="label" type="text" sortOrder="13" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Branchid</label>
+                    <comment>Lugar o Sucursal desde donde se origina el pedido</comment>
+                </field>
+
+            </group>
+        </section>
+
+
+
+
+        <section id="carriers" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+
+            <group id="chazkiregular" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="0"  showInStore="0">
+                <label>Chazki regular</label>
+                <field id="active" translate="label" type="select" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Habilitar Chaski Regular</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <!--<field id="nameregular" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Nombre Chaski Regular</label>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="titleregular" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1"
+                      showInStore="1">
+                   <label>Descripcion Chaski Regular</label>
+                   <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>-->
+
+                <!---->
+
+            </group>
+
+
+            <group id="chazkiexpress" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="0"  showInStore="0">
+                <label>Chazki express</label>
+
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Habilitar Chaski Express</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <!--<field id="nameexpress" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Nombre Chaski Express</label>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="titleexpress" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1"
+                      showInStore="1">
+                   <label>Descripcion Chaski Express</label>
+                   <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>-->
+
+            </group>
+            
+            <group id="chazkiprogramado" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="0"  showInStore="0">
+                <label>Chazki programado</label>
+                <field id="active" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Habilitar Chaski Programado</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <!--<field id="nameprogramado" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Nombre Chaski Programado</label>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+                <field id="titleprogramado" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
+                      showInStore="1">
+                   <label>Descripcion Chaski Programado</label>
+                   <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>-->
+            </group>
+        </section>
+    </system>
+</config>

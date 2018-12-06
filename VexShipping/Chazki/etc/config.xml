@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <vexsolucioneschazki>
+            <general>
+                <tienda>-11.1,-77.605</tienda>
+            </general>
+        </vexsolucioneschazki>
+        <carriers>
+            <chazkiexpress>
+                <enable>1</enable>
+                <sallowspecific>0</sallowspecific>
+                <model>VexShipping\Chazki\Model\Carrier\ChazkiExpress</model>
+                <name>Envío por chazki express</name>
+                <title>Envío por chazki express descripcion</title>
+                <type>I</type>
+                <specific_error_msg>No esta disponible</specific_error_msg>
+            </chazkiexpress>
+            <chazkiregular>
+                <enable>1</enable>
+                <sallowspecific>0</sallowspecific>
+                <model>VexShipping\Chazki\Model\Carrier\ChazkiRegular</model>
+                <name>Envío por chazki</name>
+                <title>Envío por chazki descripcion</title>
+                <type>I</type>
+                <specific_error_msg>No esta disponible</specific_error_msg>
+            </chazkiregular>
+            <chazkiprogramado>
+                <enable>1</enable>
+                <sallowspecific>0</sallowspecific>
+                <model>VexShipping\Chazki\Model\Carrier\ChazkiProgramado</model>
+                <nameprogramado>Envío por chazki programado</nameprogramado>
+                <titleprogramado>Envío por chazki programado descripcion</titleprogramado>
+                <type>I</type>
+                <specific_error_msg>No esta disponible</specific_error_msg>
+            </chazkiprogramado>
+        </carriers>
+    </default>
+</config>
